@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-wc-lib';
+
+  countChanged(count: number) {
+      console.log(`countChanged ${count}`);
+  }
 }
