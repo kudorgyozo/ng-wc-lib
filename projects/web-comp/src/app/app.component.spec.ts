@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'web-comp'`, () => {
+  it(`should have as title 'ng-wc-lib'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('web-comp');
+    expect(app.title).toEqual('ng-wc-lib');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('web-comp app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('ng-wc-lib app is running!');
   });
 });

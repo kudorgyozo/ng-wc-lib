@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'web-comp';
+  title = 'ng-wc-lib';
+
+  countChanged(e: any) {
+      console.log(`countChanged ${e.detail}`);
+  }
 }
