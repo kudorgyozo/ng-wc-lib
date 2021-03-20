@@ -163,6 +163,127 @@
           }
         }
       }
+    },
+    "web-comp": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/web-comp",
+      "sourceRoot": "projects/web-comp/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/web-comp",
+            "index": "projects/web-comp/src/index.html",
+            "main": "projects/web-comp/src/main.ts",
+            "polyfills": "projects/web-comp/src/polyfills.ts",
+            "tsConfig": "projects/web-comp/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/web-comp/src/favicon.ico",
+              "projects/web-comp/src/assets"
+            ],
+            "styles": [
+              "projects/web-comp/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/web-comp/src/environments/environment.ts",
+                  "with": "projects/web-comp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "web-comp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "web-comp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "web-comp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/web-comp/src/test.ts",
+            "polyfills": "projects/web-comp/src/polyfills.ts",
+            "tsConfig": "projects/web-comp/tsconfig.spec.json",
+            "karmaConfig": "projects/web-comp/karma.conf.js",
+            "assets": [
+              "projects/web-comp/src/favicon.ico",
+              "projects/web-comp/src/assets"
+            ],
+            "styles": [
+              "projects/web-comp/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/web-comp/tsconfig.app.json",
+              "projects/web-comp/tsconfig.spec.json",
+              "projects/web-comp/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/web-comp/e2e/protractor.conf.js",
+            "devServerTarget": "web-comp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web-comp:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "ng-wc-lib",
