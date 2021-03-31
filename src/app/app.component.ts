@@ -11,5 +11,5 @@ export class AppComponent {
 
   countChangedWC(countEvent: CustomEvent) {
     console.log(`countChanged ${countEvent.detail}`);
-}
+  }
 }
