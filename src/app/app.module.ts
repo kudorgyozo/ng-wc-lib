@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { CounterModule } from 'projects/counter/src/public-api';
+
+import { CounterWCModule } from 'projects/web-comp/src/counter/counter-wc.module';
 
 @NgModule({
   declarations: [
@@ -10,9 +10,10 @@ import { CounterModule } from 'projects/counter/src/public-api';
   ],
   imports: [
     BrowserModule,
-    CounterModule
+    CounterWCModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
