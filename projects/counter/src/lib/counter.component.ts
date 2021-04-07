@@ -2,7 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'lib-counter',
-    templateUrl: './counter.component.html'
+    templateUrl: './counter.component.html',
+    styleUrls: ['counter.component.scss']
 })
 export class CounterComponent implements OnInit {
 

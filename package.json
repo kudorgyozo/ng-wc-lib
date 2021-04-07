@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build-web-components": "node projects/web-comp/compileElements.js",
-    "serve-tmp": "node node_modules/http-server/bin/http-server dist/tmp",
+    "serve-counter": "node node_modules/http-server/bin/http-server dist/counter",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

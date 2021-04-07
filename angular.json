@@ -178,7 +178,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/tmp",
+                        "outputPath": "dist/web-comp",
                         "index": "projects/web-comp/src/index.html",
                         "main": "projects/web-comp/src/main.ts",
                         "polyfills": "projects/web-comp/src/polyfills.ts",

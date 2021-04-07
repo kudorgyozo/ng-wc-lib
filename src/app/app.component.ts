@@ -1,15 +1,24 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor(private cd: ChangeDetectorRef) {
+  }
+
+  ngOnInit(): void { }
+
   title = 'ng-wc-lib';
-  counter = 44;
+
+  countChanged(count: number) {
+    console.log(`countChanged lib ${count}`);
+  }
+
 
   countChangedWC(countEvent: CustomEvent) {
-    console.log(`countChanged ${countEvent.detail}`);
+    console.log(`countChanged wc ${countEvent.detail}`);
   }
 }

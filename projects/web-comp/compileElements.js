@@ -10,8 +10,12 @@ projects.forEach(project => {
 function compileComponent(project) {
     console.log(`\t- ${project}`);
     
-    const buildJsFiles = `ng run web-comp:build:production --aot --main=projects/web-comp/src/${project}/compile.ts`;
+    const buildJsFiles = `ng run web-comp:build:production --aot ` +
+        `--main=projects/web-comp/src/${project}/compile.ts ` +
+        `--outputPath=dist/${project}`;
     execSync(buildJsFiles, { stdio: 'inherit'} );
 
-    concat(['dist/tmp/runtime.js', 'dist/tmp/polyfills.js', 'dist/tmp/main.js'], `dist/tmp/${project}-bundle.js`);
+    concat(
+        [`dist/${project}/runtime.js`, `dist/${project}/polyfills.js`, `dist/${project}/main.js`], 
+        `dist/${project}/bundle.js`);
 }
