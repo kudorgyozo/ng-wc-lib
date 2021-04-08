@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'lib-counter',
     templateUrl: './counter.component.html',
-    styleUrls: ['counter.component.scss']
+    styleUrls: ['counter.component.scss'],
+    encapsulation: ViewEncapsulation.ShadowDom
 })
 export class CounterComponent implements OnInit {
 
